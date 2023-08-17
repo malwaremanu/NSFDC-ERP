@@ -4,9 +4,9 @@
             <div>
                 <img src="~/assets/images/logo.png" />
             </div>
-            <div class="flex items-center p-2 justify-between gap-2">
-                <div class="flex gap-2">
-                    <div class="bg-blue-900 rounded-full text-white p-1 cursor-pointer">
+            <div class="flex items-center p-2 justify-between gap-4">
+                <div class="flex gap-4">
+                    <div class="bg-n-900 rounded-full text-white p-2 cursor-pointer">
                         <svg class="h-5 w-5 text-white font-semibold" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round"
@@ -14,7 +14,7 @@
                         </svg>
                     </div>
 
-                    <div class="bg-violet-900 rounded-full text-white p-1 cursor-pointer">
+                    <div class="bg-violet-900 rounded-full text-white p-2 cursor-pointer">
                         <svg class="h-5 w-5 text-white font-semibold" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -23,10 +23,11 @@
 
                     </div>
                 </div>
-                <div>
+                <nuxt-link to="employees" >
                     <div class="text-lg font-semibold"> MANUPAL CHOUDHARY</div>
-                    <div class="text-xs">JUNIOR EXECUTIVE - IT</div>
-                </div>
+                    <div class="text-xs text-right">JUNIOR EXECUTIVE - IT</div>
+                </nuxt-link>
+
                 <nuxt-link to="logout" 
                     class="px-4 py-2 bg-red-800 hover:bg-red-600 cursor-pointer text-white flex items-center gap-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -34,13 +35,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>
-                    Logout
+                    logout
                 </nuxt-link>
             </div>
         </div>
-        <div class="bg-blue-900 text-white px-3 flex items-center uppercase">
+        <div class="bg-n-900 text-white px-3 flex items-center uppercase">
 
-            <div class="hover:bg-blue-800 px-4 py-2 cursor-pointer"
+            <div class="hover:bg-n-700 px-4 py-2 cursor-pointer"
              v-for="h in hlinks" ::key="h">
                 {{  h  }}
             </div>
@@ -55,6 +56,7 @@ export default {
         return {
             hlinks : [
                 "dashboard",
+                "Library",
                 "HR & Admin",
                 "finance",
                 "MIS",
