@@ -1,9 +1,6 @@
 <template>
     <div>
         <div class="h-2 bg-n-900 font-semibold"></div>
-
-
-
         <div class="grid grid-cols-2 ">
             <div>
                 <img class="min-h-screen object-cover"
@@ -20,34 +17,25 @@
                             <div class="text-xl mt-10 text-center font-semibold">ERP Login Panel</div>
                             <div class="text-align-left px-4 py-2">
                                 <div>Username</div>
-                                <input type="text" class="px-4 py-2 bg-n-100 border-n-800 rounded-md w-full" />
+                                <input type="text" class="input" />
                             </div>
                             <div class="text-align-left px-4 py-2">
                                 <div>Password</div>
-                                <input type="password" class="px-4 py-2 bg-n-100 border-n-800 rounded-md w-full" />
+                                <input type="password" class="input" />
                             </div>
 
                             <div class="text-align-left px-4 py-2 flex items-center gap-2 justify-between">
-                                <nuxt-link to="dashboard" class="px-4 py-2 bg-n-900 text-white rounded-md hover:shadow-xl"> Submit </nuxt-link>
-                                <button class="px-4 py-2 text-blue-900 rounded-md hover:underline"> forgot username or password ? </button>
+                                <nuxt-link to="dashboard" class="px-4 py-2 bg-n-900 text-white rounded-md hover:shadow-xl">
+                                    Submit </nuxt-link>
+                                <button class="px-4 py-2 text-blue-900 rounded-md hover:underline"> forgot username or
+                                    password ? </button>
                             </div>
                         </div>
                         <div></div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
-
-
-
-
-
-
-
     </div>
 </template>
   
