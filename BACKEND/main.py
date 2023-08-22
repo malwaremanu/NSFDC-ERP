@@ -1,13 +1,5 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from app import create_app
 
-@app.get("/")
-def root():
-    return "Hello from Space! 🚀"
-
-
-@app.get("/")
-def root():
-    return "Hello from Space! 🚀"
-
+app = create_app()
