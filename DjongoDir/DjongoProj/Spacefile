@@ -1,0 +1,9 @@
+v: 0
+icon: ./icon.png
+micros:
+  - name: django-mongodb
+    src: ./
+    engine: python3.9
+    primary: true
+    run: gunicorn DjongoProj.wsgi:application
+    public: true

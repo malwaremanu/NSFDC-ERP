@@ -1,0 +1,7 @@
+'default': {
+    'ENGINE': 'djongo',
+    'NAME': 'djongov1',
+    'CLIENT': {
+        "host": "mongodb+srv://malwaremanu:manu1234@cluster0.rr4rk0h.mongodb.net/?retryWrites=true&w=majority"
+    }  
+}
