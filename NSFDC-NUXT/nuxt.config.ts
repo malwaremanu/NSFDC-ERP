@@ -1,22 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: [
-    "~/assets/css/main.css"    
-  ],
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],     
   modules: [
-    // ...
-    '@pinia/nuxt',
-    {
-      autoImports: ['defineStore', 'acceptHMRUpdate'],
-    }
-  ],
-  imports : {
-    dirs: ['stores'],
-},
+    'nuxt3-vuex-module',
+  ], 
   postcss: {
     plugins: {      
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
 })

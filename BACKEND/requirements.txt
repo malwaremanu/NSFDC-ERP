@@ -1,5 +1,0 @@
-fastapi
-deta
-pydantic
-passlib
-uvicorn[standard]
