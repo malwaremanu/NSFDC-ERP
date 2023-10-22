@@ -17,21 +17,36 @@
               <div></div>
               <div class="col-span-3">
                 <div class="text-xl mt-10 text-center font-semibold">ERP Login Panel</div>
-                <div class="text-align-left px-4 py-2">
-                  <div>Username</div>
-                  <input type="text" class="input" />
+
+                <div>
+                  {{  this.$store.state.data }}
                 </div>
-                <div class="text-align-left px-4 py-2">
-                  <div>Password</div>
-                  <input type="password" class="input" />
+
+                <div class="text-center">
+                    <div @click="this.$router.push('/auth')" class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer">
+                      Login
+                    </div>
                 </div>
-  
-                <div class="text-align-left px-4 py-2 flex items-center gap-2 justify-between">
-                  <button @click="login" class="px-4 py-2 bg-n-900 text-white rounded-md hover:shadow-xl" key="dashboard-link">
-                    Submit
-                  </button>
-                  <button class="px-4 py-2 text-blue-900 rounded-md hover:underline">Forgot username or password?</button>
+                
+                
+                <div class="hidden">
+                    <div class="text-align-left px-4 py-2">
+                    <div>Username</div>
+                    <input type="text" class="input" />
+                  </div>
+                  <div class="text-align-left px-4 py-2">
+                    <div>Password</div>
+                    <input type="password" class="input" />
+                  </div>
+    
+                  <div class="text-align-left px-4 py-2 flex items-center gap-2 justify-between">
+                    <button @click="login" class="px-4 py-2 bg-n-900 text-white rounded-md hover:shadow-xl" key="dashboard-link">
+                      Submit
+                    </button>
+                    <button class="px-4 py-2 text-blue-900 rounded-md hover:underline">Forgot username or password?</button>
+                  </div>
                 </div>
+                
               </div>
               <div></div>
             </div>
@@ -42,8 +57,6 @@
   </template>
   
   <script>
-  
-  
   export default {
     middleware: 'authenticated',
     mounted() {

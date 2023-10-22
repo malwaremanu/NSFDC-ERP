@@ -19,7 +19,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@kinde-oss/kinde-auth-pkce-js": "^3.0.22",
     "nuxt3-vuex-module": "^1.0.12",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   }
 }

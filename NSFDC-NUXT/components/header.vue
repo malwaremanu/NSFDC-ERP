@@ -28,11 +28,11 @@
                     </div>
                 </div>
                 <nuxt-link to="employees" >
-                    <div class="text-lg font-semibold"> MANUPAL CHOUDHARY</div>
+                    <div class="text-lg font-semibold"> {{ this.$store.state.data.user.given_name }} {{ this.$store.state.data.user.family_name }} </div>
                     <div class="text-xs text-right">JUNIOR EXECUTIVE - IT</div>
                 </nuxt-link>
 
-                <nuxt-link to="logout" 
+                <nuxt-link to="auth?logout=true" 
                     class="px-4 py-2 bg-red-800 hover:bg-red-600 cursor-pointer text-white flex items-center gap-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -46,7 +46,7 @@
         <div class="bg-n-900 text-white px-3 flex items-center uppercase">
 
             <div class="hover:bg-n-700 px-4 py-2 cursor-pointer"
-             v-for="h in hlinks" ::key="h">
+             v-for="h in hlinks" :key="h">
                 {{  h  }}
             </div>
 
@@ -68,5 +68,10 @@ export default {
             ]
         }
     },
+    methods : {
+        logout(){
+
+        }
+    }
 }
 </script>
