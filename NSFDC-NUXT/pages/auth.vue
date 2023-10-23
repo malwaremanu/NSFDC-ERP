@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <div>Authentication Page.</div>
+    <div class="h-screen flex items-center justify-center">        
         <div>
-            {{ this.$store.state.data }}
-        </div>
-
-        <button @click="handle_logout()">logout</button>
+            <div class="text-2xl">Loading. Please Wait.</div>                  
+            <img src="~assets/images/loading.gif">                            
+        </div>        
     </div>
 </template>
 

@@ -1,26 +1,12 @@
-// // store/counter.js
-// export const state = () => ({
-//     user: {
-//         "msg" : "success"
-//     },
-//     kinde_details : {
-//         client_id : "ee19eb7d7d684369a75ae4264cab5907",
-//         redirect_url : "http://localhost:3000/auth",
-//         host_url : "https://nsfdc-dev.eu.kinde.com"
-//     },    
-//     is_authenticated : false
-//   });
-  
-
 // store/data.js
 export const state = () => ({
     user: {
       "msg" : "success"
     },
     kinde_details : {
-      client_id : "ee19eb7d7d684369a75ae4264cab5907",
+      client_id : "19ff825b368c4ff3a3cf697348c878d4",
       redirect_url : "http://localhost:3000/auth",
-      host_url : "https://nsfdc-dev.eu.kinde.com"
+      host_url : "https://nsfdc.kinde.com"
     },    
     is_authenticated : false
   });

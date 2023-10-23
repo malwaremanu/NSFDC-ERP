@@ -1,18 +1,10 @@
 <template>
   <div>
-    Counter: {{ data }}
-
-    <div>
-      Login Panel : 
-      <br>
-
-      <div @click="login()" class="px-4 py-2 bg-green-200">
-        Login
-      </div>
-
+    <div class="h-screen flex items-center justify-center">        
+        <div>          
+            <div class="text-2xl">Welcome to NSFDC ERP</div>                              
+        </div>        
     </div>
-
-    <nuxt-link to="about">about</nuxt-link>
   </div>
 </template>
 
@@ -25,27 +17,18 @@ export default {
       data: this.$store.state.data,
     };
   },
-
   mounted() {
-        this.$router.push('/login')
-  }, 
-  methods: {
-    async login(){          
-          const kinde = await createKindeClient({
-          client_id: this.$store.state.data.kinde_details.client_id,
-          domain: this.$store.state.data.kinde_details.host_url,
-          redirect_uri: this.$store.state.data.kinde_details.redirect_url
-        })
-      
-        await kinde.login();
-      ;
-    },
-    incrementCounter() {
-      this.$store.commit('incrementCounter');
-    },
-    decrementCounter() {
-      this.$store.commit('decrementCounter');
-    },
+      this.wait(2000)
+      this.$router.push('/login')
   },
+  methods : {
+    wait(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+        end = new Date().getTime();
+    }
+  }
+  }
 };
 </script>

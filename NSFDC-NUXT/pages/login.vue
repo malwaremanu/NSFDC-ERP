@@ -17,17 +17,16 @@
               <div></div>
               <div class="col-span-3">
                 <div class="text-xl mt-10 text-center font-semibold">ERP Login Panel</div>
+<br>
 
-                <div>
-                  {{  this.$store.state.data }}
-                </div>
+<img class="hidden" src="~assets/images/loading.gif">                            
+
 
                 <div class="text-center">
                     <div @click="this.$router.push('/auth')" class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer">
                       Login
                     </div>
                 </div>
-                
                 
                 <div class="hidden">
                     <div class="text-align-left px-4 py-2">
