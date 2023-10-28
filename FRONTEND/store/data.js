@@ -18,20 +18,27 @@ export const state = () => ({
   export const mutations = {
     setUser(state, user) {
       state.user = user;
-      localStorage.setItem('user', JSON.stringify(user))
+      if (process.client) {
+        localStorage.setItem('user', JSON.stringify(user))
+      }
+      
     },
     setAuthentication(state, status) {
       state.is_authenticated = status;
     },
     setToken(state, token){
       state.token.auth_token = token
-      localStorage.setItem('token', token)
+      if (process.client) {
+        localStorage.setItem('token', token)
+      }
     },
 
     DecodeToken(state, tk){
       state.token.dtoken = tk
-      localStorage.setItem('u', JSON.stringify(tk))
-      localStorage.setItem('p', JSON.stringify(tk).permissions)
+      if (process.client) {
+        localStorage.setItem('u', JSON.stringify(tk))
+        localStorage.setItem('p', JSON.stringify(tk).permissions)
+      }
     }
 
   };

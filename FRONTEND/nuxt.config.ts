@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+export default ({
+  target: 'static',
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: ["nuxt3-vuex-module", "@formkit/nuxt", "nuxt-icon"],
