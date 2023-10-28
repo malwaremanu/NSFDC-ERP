@@ -3,7 +3,10 @@
     <div class="h-screen flex items-center justify-center">        
         <div>          
             <div class="text-2xl">Welcome to NSFDC ERP</div>                              
-        </div>        
+        </div>  
+        <!-- Footer -->
+        <Footer />
+              
     </div>
   </div>
 </template>

@@ -1,15 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],     
-  modules: [
-    'nuxt3-vuex-module',
-  ], 
+  css: ["~/assets/css/main.css"],
+  modules: ["nuxt3-vuex-module", "@formkit/nuxt", "nuxt-icon"],
   postcss: {
-    plugins: {      
+    plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-
-})
+  formkit: {
+    // Experimental support for auto loading (see note):
+    autoImport: true,
+  },
+});
