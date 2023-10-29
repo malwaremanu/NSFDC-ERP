@@ -1,25 +1,31 @@
 <template>
-  <div>
-    <div class="flex items-center justify-between">
+  <div class="p-3">
+    <div class="flex items-center justify-between gap-3 p-2">
       <div>
-        <span>search field:</span>
-        <select v-model="searchField">
-          <option v-for="s in searchFieldlist" :key="s">{{ s }}</option>
-        </select>
+
       </div>
       <div>
         <span>search value: </span>
-        <input type="text" v-model="searchValue" />
+        <input type="text" v-model="searchValue" class="px-3 py-2 bg-gray-100 text-sm outline-none"/>
       </div>
     </div>
 
-    <EasyDataTable
-      :headers="headers"
-      :items="items"
-      alternating
-      :search-field="searchField"
-      :search-value="searchValue"
-    />
+    <div>
+      <EasyDataTable
+        table-class-name="tailwindcss"
+        :headers="headers"
+        :items="items"
+        alternating        
+        :search-value="searchValue"
+        show-index
+        @click-row="show_row"
+      >
+      
+
+      </EasyDataTable>
+
+    </div>
+    
   </div>
 </template>
 
@@ -27,8 +33,11 @@
 export default {
   data() {
     return {
-      searchField: "",
-      searchFieldlist: ["player", "number", "team"],
+      sample: {
+        location: "New York City",
+        duration: "2 weeks",
+        price: "average",
+      },      
       searchValue: "",
       headers: [
         { text: "PLAYER", value: "player", sortable: true },
@@ -39,6 +48,7 @@ export default {
         { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true },
         { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
         { text: "COUNTRY", value: "country" },
+        { text: "ACTION", value: "operation" },
       ],
       items: [
         {
@@ -48,7 +58,7 @@ export default {
           position: "G",
           indicator: { height: "6-2", weight: 185 },
           lastAttended: "Davidson",
-          country: "USA",
+          country: "USA"
         },
         {
           player: "Lebron James",
@@ -80,5 +90,21 @@ export default {
       ],
     };
   },
+  methods: {
+    save(x) {
+      alert(JSON.stringify(x));
+    },
+    show_row(x){
+      alert(JSON.stringify(x))
+    }
+  },
 };
 </script>
+
+<style>
+.tailwindcss {
+  --easy-table-header-font-size: 14px;
+  --easy-table-header-height: 50px;
+  --easy-table-header-font-color: #000000;
+}
+</style>
