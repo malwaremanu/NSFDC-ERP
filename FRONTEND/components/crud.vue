@@ -1,10 +1,11 @@
 <template>
   <div>
-
     <div>
-        
+      <FormKit type="form">
+        <FormKitSchema :schema="schema" />
+      </FormKit>
     </div>
-    <div class="px-4 py-2">
+    <div class="">
       <div class="select-none">
         <div class="px-4 py-2 bg-n-900 text-white text-xl rounded-t-xl hidden">
           Open Requests
@@ -59,3 +60,22 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      schema: [
+        {
+          $formkit: "email",
+          label: "Email address",
+          validation: "required",
+        },
+      ],
+      data : [
+        
+      ]
+    };
+  },
+};
+</script>

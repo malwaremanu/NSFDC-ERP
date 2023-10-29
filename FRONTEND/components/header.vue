@@ -226,6 +226,11 @@
       <nuxt-link to="/masters" class="hover:bg-n-700 px-4 py-2 cursor-pointer">
         Masters
       </nuxt-link>
+
+      <nuxt-link to="/masters/test" class="hover:bg-n-700 px-4 py-2 cursor-pointer">
+        CRUD
+      </nuxt-link>
+
     </div>
   </div>
 </template>

@@ -13,5 +13,6 @@ export default ({
   formkit: {
     // Experimental support for auto loading (see note):
     autoImport: true,
+    configFile: './formkit.config.js',
   },
 });
