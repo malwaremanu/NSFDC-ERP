@@ -26,7 +26,7 @@
               <img class="hidden" src="~assets/images/loading.gif" />
 
               <div class="mt-10 text-center flex flex-col gap-2 items-center">
-                <a href="https://auth0.manupal.dev/c/z64h5kb9y15b?r=http://localhost:3000/auth"                  
+                <a href="https://auth0.manupal.dev/c/z64h5kb9y15b?r=https://erp.nsfdcdigital.in/auth"                  
                   class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer animate-bounce"
                 >
                   Login
