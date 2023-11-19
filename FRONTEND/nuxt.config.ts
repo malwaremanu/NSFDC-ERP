@@ -4,7 +4,7 @@ export default ({
   ssr: false,
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["nuxt3-vuex-module", "@formkit/nuxt", "nuxt-icon", "@nuxtjs/kinde"],
+  modules: ["nuxt3-vuex-module", "@formkit/nuxt", "nuxt-icon"],
   postcss: {
     plugins: {
       tailwindcss: {},

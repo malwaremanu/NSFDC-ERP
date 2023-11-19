@@ -42,6 +42,10 @@ export default {
     },
     methods: {
         startCountdown() {
+
+            // Clear the entire localStorage
+            localStorage.clear();
+
             this.countdownMessage = `Page is redirecting in ${this.countdown} seconds...`;
 
             const countdownInterval = setInterval(() => {

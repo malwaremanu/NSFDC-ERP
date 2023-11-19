@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import createKindeClient from "@kinde-oss/kinde-auth-pkce-js";
-
 export default {
   data() {
     return {

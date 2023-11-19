@@ -5,7 +5,7 @@
       <div>
         <img
           class="min-h-screen object-cover"
-          src="https://images.unsplash.com/photo-1633410195091-bd66114cef5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+          :src="imageURL"
           alt=""
         />
       </div>
@@ -25,24 +25,19 @@
 
               <img class="hidden" src="~assets/images/loading.gif" />
 
-              <div class="text-center">
-                <div
-                  @click="this.$router.push('/auth')"
-                  class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer hidden"
+              <div class="mt-10 text-center flex flex-col gap-2 items-center">
+                <a href="https://auth0.manupal.dev/c/z64h5kb9y15b?r=http://localhost:3000/auth"                  
+                  class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer animate-bounce"
                 >
                   Login
-                </div>
-
-                <NuxtLink to="/api/login" external
-                class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer">
-                  Sign in
-                </NuxtLink>
-
+                </a>
+             
 
                 <a target="_blank"
                   href="http://l2.bankmill.in:8548/rgda/index.html?organization=636a392e5a1863baa1716512"                  
                 >
-                  <button class="w-full px-4 py-2 bg-green-700 m-2 text-white rounded select-none cursor-pointer" type="button"> Go to Bankmill Magic </button>                  
+                  <button class="w-full px-4 py-2 bg-green-700 m-2 text-white rounded select-none cursor-pointer" 
+                  type="button"> Go to Bankmill Magic </button>                  
                 </a>
               </div>
 
@@ -84,9 +79,17 @@
 
 <script>
 export default {
+  data(){
+    return {
+      imageURL : 'https://nsfdc.nic.in/assets/images/magazine/carousel/1.jpg',
+      currentImageIndex : 1,
+      totalImages : 6,
+    }
+  },
   middleware: "authenticated",
   mounted() {
     console.log("Initiated.");
+    setInterval(this.changeImageURL, 5000); 
   },
   methods: {
     login() {
@@ -94,6 +97,12 @@ export default {
         "https://nsfdc.kinde.com/oauth2/auth?response_type=code&client_id=71413cbda747439dbee2e716f4b2bb83&redirect_uri=http://localhost:3000&scope=openid+profile+email&state=abc";
       this.$router.push(url);
     },
+    changeImageURL() {      
+      console.log("changing now...", this.imageURL)
+      this.imageURL = `https://nsfdc.nic.in/assets/images/magazine/carousel/${this.currentImageIndex}.jpg`;    
+      this.currentImageIndex = (this.currentImageIndex % this.totalImages) + 1;
+    }
+
   },
 };
 </script>

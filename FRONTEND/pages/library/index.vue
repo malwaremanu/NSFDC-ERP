@@ -10,17 +10,7 @@
           </h1>
         </div>
         <div
-          v-if="
-            permissions.includes(
-              'lib-admin'   
-            )
-          "
-          @click="open = !open"
-          class="m-auto px-4 py-2 bg-n-800 text-white hover:bg-n-700 hover:shadow-md rounded-full cursor-pointer select-none"
-        >
-          <span v-if="open"> Close </span>
-
-          <span v-if="!open"> Open </span>
+          class="m-auto px-4 py-2 bg-n-800 text-white hover:bg-n-700 hover:shadow-md rounded-full cursor-pointer select-none">
           Admin Panel
         </div>
       </header>
@@ -32,19 +22,19 @@
               Admin Panel
             </div>
             <ul class="rounded-lg">
-              <a href="{% url 'dashboard' %}">
+              <a href="#">
                 <li class="admin-item">Dashboard</li></a
               >
-              <a href="{% url 'requests' %}"
+              <a href="requests"
                 ><li class="admin-item">All Requests</li></a
               >
-              <a href="{% url 'lib_index' %}"
+              <a href="lib_index"
                 ><li class="admin-item">Search Books</li></a
               >
-              <a href="{% url 'add_catalog' %}"
+              <a href="add_catalog"
                 ><li class="admin-item">Add Books</li></a
               >
-              <a href="{% url 'request_new_catalog' %}"
+              <a href="request_new_catalog"
                 ><li class="admin-item">View Requests</li></a
               >
             </ul>
@@ -55,41 +45,58 @@
               User Panel
             </div>
             <ul class="rounded-lg">
-              <a href="{% url 'dashboard' %}"
-                ><li class="side-item">Dashboard</li></a
-              >
-              <a href="{% url 'lib_index' %}"
-                ><li class="side-item">Search Books</li>
+              
+              <li class="side-item">Dashboard</li>              
+              <li class="side-item" @click="c_choose('RequestsComponent')">My Requests</li>
+              <li class="side-item" @click="c_choose('SearchComponent')">Search</li>
+              <li class="side-item" @click="c_choose('Hindi')">Hindi</li>
+              <li class="side-item" @click="c_choose('English')">English</li>
+
+<!-- 
+              <a href="my_requests"
+                >
               </a>
-              <a href="{% url 'my_requests' %}"
-                ><li class="side-item">My Requests</li>
-              </a>
-              <!-- <li class="side-item">My Bag</li> -->
-              <a href="{% url 'filter_books' category='hindi' %}"
+              <a href="filter_books"
                 ><li class="side-item">Hindi</li></a
               >
-              <a href="{% url 'filter_books' category='english' %}">
+              <a href="filter_books">
                 <li class="side-item">English</li></a
               >
-              <a href="{% url 'filter_books' category='reference' %}">
+              <a href="filter_books">
                 <li class="side-item">Reference</li></a
               >
-              <a href="{% url 'request_new_catalog' %}">
+              <a href="request_new_catalog">
                 <li class="side-item flex items-center">
                   Request New Book
 
                   <img
                     src="https://www.janabank.com/images/New-gif.gif"
                     alt=""
-                    class="h-5"
-                  /></li
-              ></a>
+                    class="h-5" /></li
+              ></a> -->
             </ul>
           </div>
         </aside>
 
         <div class="col-span-10 m-4 p-2 bg-n-50/30 rounded-md">
-          normal content
+          
+
+          <div v-if="show_c == 'SearchComponent'">
+            <SearchComponent />
+          </div>
+
+          <div v-if="show_c == 'RequestsComponent'">
+            <RequestsComponent />
+          </div>
+
+          <div v-if="show_c == 'Hindi'">
+            <Hindi />
+          </div>
+
+          <div v-if="show_c == 'English'">
+            <English />
+          </div>
+          
         </div>
       </div>
 
@@ -100,12 +107,25 @@
 </template>
 
 <script>
+
+import SearchComponent from '~/components/library/search.vue';
+import RequestsComponent from '~/components/library/requests.vue';
+import English from '~/components/library/english.vue';
+import Hindi from '~/components/library/hindi.vue';
+
 export default {
   data() {
     return {
-      open: false,
-      permissions : JSON.parse(localStorage.getItem('u')).permissions
+      show_c : null
     };
   },
+  components: {
+    SearchComponent, RequestsComponent, Hindi, English
+  },
+  methods: {   
+    c_choose(s){
+      this.show_c = s
+    } 
+  }
 };
 </script>

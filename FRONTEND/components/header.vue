@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="select-none cursor-pointer">
-          <div v-if="$auth.loggedIn">
+          <div class="hidden">
             <nuxt-link to="/auth">
               <Icon
                 name="material-symbols:sync-rounded"
@@ -61,25 +61,12 @@
             </nuxt-link>
           </div>
           <div class="text-lg font-semibold">
-            <!-- {{ this.$store.state.data.user.given_name }}
-            {{ this.$store.state.data.user.family_name }} -->
-          </div>
-          <div            
-            class="text-xs text-right"
-          >
-            JUNIOR EXECUTIVE - IT
+            {{ this.$store.state.data.user.name }}            
           </div>
         </div>
 
-        <p v-if="$auth.loggedIn">
-          I'm signed in!
-        </p>
-        <p v-else>
-          I'm signed out :(
-        </p>
-
         <nuxt-link
-          to="auth?logout=true"
+          to="/logout"
           class="px-4 py-2 bg-red-800 hover:bg-red-600 cursor-pointer text-white flex items-center gap-2 rounded-full"
         >
           <svg
@@ -213,6 +200,10 @@
         Library
       </nuxt-link>
 
+      <nuxt-link to="/csr" class="hover:bg-n-700 px-4 py-2 cursor-pointer">
+        CSR
+      </nuxt-link>
+
       <nuxt-link
         to="/loan-finance"
         class="hover:bg-n-700 px-4 py-2 cursor-pointer"
@@ -241,8 +232,25 @@
   </div>
 </template>
 
-<script setup lang="ts">
-	definePageMeta({
-	  middleware: ['auth-logged-in'],
-	})
+<script>
+  export default {
+  created() {
+    // Load data from localStorage and commit mutations to set Vuex state
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    if (token && user) {
+      this.$store.commit('data/setToken', JSON.parse(token));
+      this.$store.commit('data/setUser', JSON.parse(user));
+      // alert('commited from localstorage')
+    }
+    // Load other persisted data if needed
+
+    // Persist data before the page is unloaded
+    window.addEventListener('beforeunload', () => {
+      const stateToPersist = this.$store.state.data; // Adjust for your Vuex module
+      localStorage.setItem('token', JSON.stringify(stateToPersist.token));
+      // Persist other state data if needed
+    });
+  }
+}
 </script>
