@@ -28,10 +28,16 @@
               <div class="text-center">
                 <div
                   @click="this.$router.push('/auth')"
-                  class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer"
+                  class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer hidden"
                 >
                   Login
                 </div>
+
+                <NuxtLink to="/api/login" external
+                class="px-4 py-2 bg-n-700 m-2 text-white rounded select-none cursor-pointer">
+                  Sign in
+                </NuxtLink>
+
 
                 <a target="_blank"
                   href="http://l2.bankmill.in:8548/rgda/index.html?organization=636a392e5a1863baa1716512"                  

@@ -1,14 +1,5 @@
 <template>
-  <div>
-    
-    <FormKit
-        type="number"
-        value="asd"
-        label="Enter a number between 5-10"
-    />
-    {{  formSchema  }}
-    <FormKitSchema :schema="formSchema" />
-
+  <div>  
     <!-- ----- -->
     <table>
       <thead>
@@ -35,9 +26,6 @@
 </template>
 
 <script>
-// import { FormKitSchema } from 'formkit';
-import { FormKitSchema } from '@formkit/vue'
-
 export default {
   data() {
     return {

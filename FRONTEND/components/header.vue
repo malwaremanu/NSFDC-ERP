@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="select-none cursor-pointer">
-          <div v-if="!this.$store.state.data.user.given_name">
+          <div v-if="$auth.loggedIn">
             <nuxt-link to="/auth">
               <Icon
                 name="material-symbols:sync-rounded"
@@ -61,16 +61,22 @@
             </nuxt-link>
           </div>
           <div class="text-lg font-semibold">
-            {{ this.$store.state.data.user.given_name }}
-            {{ this.$store.state.data.user.family_name }}
+            <!-- {{ this.$store.state.data.user.given_name }}
+            {{ this.$store.state.data.user.family_name }} -->
           </div>
-          <div
-            v-if="this.$store.state.data.user.given_name"
+          <div            
             class="text-xs text-right"
           >
             JUNIOR EXECUTIVE - IT
           </div>
         </div>
+
+        <p v-if="$auth.loggedIn">
+          I'm signed in!
+        </p>
+        <p v-else>
+          I'm signed out :(
+        </p>
 
         <nuxt-link
           to="auth?logout=true"
@@ -235,19 +241,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      hlinks: ["HR & Admin", "MIS", "Investment and assets"],
-      open : true
-    };
-  },
-  methods: {
-    logout() {},
-    al(x) {
-      alert(x);
-    },
-  },
-};
+<script setup lang="ts">
+	definePageMeta({
+	  middleware: ['auth-logged-in'],
+	})
 </script>
