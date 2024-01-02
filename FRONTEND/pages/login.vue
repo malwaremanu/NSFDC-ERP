@@ -13,7 +13,7 @@
         <div class="mx-auto mt-20">
           <img
             class="mx-auto max-h-[250px]"
-            src="~/assets/images/loginpage.png"
+            src="/logo.png"
           />
 
           <div class="grid grid-cols-5">
