@@ -31,7 +31,7 @@
                   Login
                 </a>             
 
-                <span>{{  line  }}</span>
+                <!-- <span>{{  line  }}</span> -->
 
                 <div class="flex items-center gap-2">
                   <a target="_blank" href="http://l.bankmill.in:8548/rgda/index.html?organization=636a392e5a1863baa1716512&usertype=Employee" >
